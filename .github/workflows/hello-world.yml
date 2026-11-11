@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step 1 - Say Hello
-        run: echo "Hello Prapul! Your pipeline triggered successfully from your WSL terminal."
+      # NEW STEP: Pulls your app.py file onto the temporary cloud runner
+      - name: Step 1 - Checkout code
+        uses: actions/checkout@v4
 
-      - name: Step 2 - Check Agent Details
-        run: |
-          echo "The OS running this cloud agent is:"
-          cat /etc/os-release | grep PRETTY_NAME
+      # NEW STEP: Runs your Python application inside the cloud runner
+      - name: Step 2 - Run Python App
+        run: python3 app.py
 
