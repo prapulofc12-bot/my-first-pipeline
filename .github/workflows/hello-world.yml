@@ -1,0 +1,17 @@
+name: My First Practical Pipeline
+
+on: push
+
+jobs:
+  wsl-triggered-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Say Hello
+        run: echo "Hello Prapul! Your pipeline triggered successfully from your WSL terminal."
+
+      - name: Step 2 - Check Agent Details
+        run: |
+          echo "The OS running this cloud agent is:"
+          cat /etc/os-release | grep PRETTY_NAME
+
