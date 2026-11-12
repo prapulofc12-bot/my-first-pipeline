@@ -1,0 +1,18 @@
+name: simple-test
+
+# Listens to pushes on ALL branches (including your new app-v1 branch)
+on: push
+
+jobs:
+  wsl-triggered-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Automatically detects you pushed to 'app-v1' and downloads 'address-details.txt'
+      - name: Step 1 - Checkout code from pushed branch
+        uses: actions/checkout@v4
+
+      # Step 2: Runs a standard Linux command to print the contents of your text file
+      - name: Step 2 - Print Address Details
+        run: cat address-details.txt
+
