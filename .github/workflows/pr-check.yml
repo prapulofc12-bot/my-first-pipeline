@@ -1,0 +1,19 @@
+name: Pull Request Quality Gate
+
+# TRIGGER: Run ONLY when someone opens or updates a Pull Request targeting 'main'
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Download PR Code
+        uses: actions/checkout@v4
+
+      - name: 2. Run Python App Test
+        run: python3 app.py
+
